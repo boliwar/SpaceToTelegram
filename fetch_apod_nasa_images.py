@@ -28,7 +28,7 @@ def create_parser():
 
 def main():
     load_dotenv()
-    directory = lsp.make_dir_for_img()
+    directory = lsp.get_dir_for_img()
     parser = create_parser()
     command_line_arguments = parser.parse_args()
     count = command_line_arguments.count if command_line_arguments.count else 5

@@ -23,7 +23,7 @@ def create_parser():
 
 def main():
     load_dotenv()
-    directory = lsp.make_dir_for_img()
+    directory = lsp.get_dir_for_img()
     parser = create_parser()
     command_line_arguments = parser.parse_args() # 5eb87d47ffd86e000604b38a
     launch_id = command_line_arguments.id if command_line_arguments.id else 'latest'

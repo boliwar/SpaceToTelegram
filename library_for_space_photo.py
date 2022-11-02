@@ -25,8 +25,8 @@ def get_file_name(url):
     return tuple_name[1]
 
 
-def make_dir_for_img():
-    directory = os.environ['directory']
+def get_dir_for_img():
+    directory = f"{os.path.split(os.path.abspath(__file__))[0]}{os.environ['directory']}"
     if not os.path.exists(directory):
         os.mkdir(directory)
     return directory
