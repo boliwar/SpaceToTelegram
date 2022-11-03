@@ -13,7 +13,7 @@ python space_photo_bot.py  _параметр_
 Для настроек испольуется файл окружения .env<br>
 
 nasa_api_key=xxxxxx  API ключ с сайта [Nasa](https://api.nasa.gov/). <br>
-directory=xxxxxx     Директория для размещения изображений.<br>
+directory_for_images=xxxxxx     Директория для размещения изображений.<br>
 TG_BOT_TOKEN=xxxxxxxxx      Токен телеграм-бота.<br>
 tg_chat_id=xxxxxxxxx    ИД канала в котором публикуются изображения.<br>
 
