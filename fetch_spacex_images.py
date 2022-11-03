@@ -2,32 +2,38 @@ import library_for_space_photo as lsp
 import requests
 import argparse
 from dotenv import load_dotenv
+import os
 
 
-def get_spacex_list_pictures(url):
+def get_spacex_pictures_urls(url):
     response = requests.get(url)
     response.raise_for_status()
     return response.json()["links"]["flickr"]["original"]
 
-def fetch_spacex_launch(directory, launch_id):
+
+def fetch_spacex_pictures(directory, launch_id):
     pictures_url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
 
-    list_url_pictures = get_spacex_list_pictures(pictures_url)
-    lsp.dowload_list_pictures(list_url_pictures, directory)
+    picture_urls = get_spacex_pictures_urls(pictures_url)
+    lsp.download_pictures(picture_urls, directory)
+
 
 def create_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('id', nargs='?')
+    parser = argparse.ArgumentParser(description='Function for load images from SpaceX launch.')
+    parser.add_argument('id', type=str, nargs='?', default='latest',
+                        help='Use to specify id for the desired launch. The last one is selected by default.')
     return parser
 
 
 def main():
-    load_dotenv()
-    directory = lsp.get_dir_for_img()
     parser = create_parser()
     command_line_arguments = parser.parse_args()
-    launch_id = command_line_arguments.id if command_line_arguments.id else 'latest'
-    fetch_spacex_launch(directory, launch_id)
+    launch_id = command_line_arguments.id
+    load_dotenv()
+    directory = os.environ['directory_for_images']
+    full_path_images = lsp.get_dir_for_img(directory)
+
+    fetch_spacex_pictures(full_path_images, launch_id)
 
 
 if __name__ == "__main__":
