@@ -14,8 +14,8 @@ python space_photo_bot.py  _параметр_
 
 nasa_api_key=xxxxxx  API ключ с сайта [Nasa](https://api.nasa.gov/). <br>
 directory=xxxxxx     Директория для размещения изображений.<br>
-TOKEN=xxxxxxxxx      Токен телеграм-бота.<br>
-chat_id=xxxxxxxxx    ИД канала в котором публикуются изображения.<br>
+TG_BOT_TOKEN=xxxxxxxxx      Токен телеграм-бота.<br>
+tg_chat_id=xxxxxxxxx    ИД канала в котором публикуются изображения.<br>
 
 Указаный бот должен быть администратором канала.
 
