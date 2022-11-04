@@ -33,10 +33,10 @@ def main():
                 media_files.append(os.path.join(address, name))
 
         while True:
-            file_name = random.choices(media_files)
-            with open(file_name[0], 'rb') as fileload:
+            file_name, = random.choices(media_files)
+            with open(file_name, 'rb') as fileload:
                 bot.send_document(chat_id=tg_chat_id, document=fileload)
-            media_files.remove(file_name[0])
+            media_files.remove(file_name)
             time.sleep(timeout_hours*60*60)
             if not media_files:
                 break
