@@ -31,8 +31,8 @@ def main():
     command_line_arguments = parser.parse_args()
     count = command_line_arguments.count
     load_dotenv()
-    nasa_api_key = os.environ['nasa_api_key']
-    directory = os.environ['directory_for_images']
+    nasa_api_key = os.environ['NASA_API_KEY']
+    directory = os.environ['DIRECTORY_FOR_IMAGES']
     full_path_images = lsp.get_dir_for_img(directory)
 
     fetch_nasa_pictures(nasa_api_key, full_path_images, count)

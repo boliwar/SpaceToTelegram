@@ -30,7 +30,7 @@ def main():
     command_line_arguments = parser.parse_args()
     launch_id = command_line_arguments.id
     load_dotenv()
-    directory = os.environ['directory_for_images']
+    directory = os.environ['DIRECTORY_FOR_IMAGES']
     full_path_images = lsp.get_dir_for_img(directory)
 
     fetch_spacex_pictures(full_path_images, launch_id)

@@ -20,8 +20,8 @@ def main():
     timeout_hours = command_line_arguments.pause
     load_dotenv()
     tg_bot_token = os.environ['TG_BOT_TOKEN']
-    tg_chat_id = os.environ['tg_chat_id']
-    directory = os.environ['directory_for_images']
+    tg_chat_id = os.environ['TG_CHAT_ID']
+    directory = os.environ['DIRECTORY_FOR_IMAGES']
     full_path_images = lsp.get_dir_for_img(directory)
     bot = telegram.Bot(token=tg_bot_token)
 

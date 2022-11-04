@@ -32,8 +32,8 @@ def main():
     parser = create_parser()
     command_line_arguments = parser.parse_args()
     load_dotenv()
-    directory = os.environ['directory_for_images']
-    nasa_api_key = os.environ['nasa_api_key']
+    directory = os.environ['DIRECTORY_FOR_IMAGES']
+    nasa_api_key = os.environ['NASA_API_KEY']
     full_path_images = lsp.get_dir_for_img(directory)
 
     try:
