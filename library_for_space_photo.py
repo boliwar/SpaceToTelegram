@@ -14,13 +14,9 @@ def get_picture(url, filename, payload=None):
 
 def download_pictures(picture_urls, directory, payload=None):
     for url in picture_urls:
-        get_picture(url, Path(directory, get_file_name(url)), payload)
-
-
-def get_file_name(url):
-    url_components = urllib.parse.urlparse(url)
-    tuple_name = os.path.split(url_components.path)
-    return tuple_name[1]
+        url_components = urllib.parse.urlparse(url)
+        file_path, file_name = os.path.split(url_components.path)
+        get_picture(url, Path(directory, file_name), payload)
 
 
 def get_dir_for_img(directory):
